@@ -1,0 +1,87 @@
+:root {
+  --boardWidth: 500px;
+  --boardHeight: 350px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-top: 10%;
+  background-image: url("./img/connect-four-background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#current-player {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#play-area {
+  width: var(--boardWidth);
+  height: var(--boardHeight);
+  margin: 1em auto 0;
+  position: relative;
+}
+
+#board {
+  width: var(--boardWidth);
+  height: var(--boardHeight);
+}
+
+#red-chip,
+#black-chip {
+  position: absolute;
+  width: calc(var(--boardWidth) * 0.12);
+  height: calc(var(--boardHeight) * 0.15);
+}
+
+#button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: var(--boardWidth);
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 5em;
+}
+
+#button-group button {
+  font-size: 0.75rem;
+  padding: 0.5em 1.5em;
+  background-color: rgb(0, 145, 255);
+  color: white;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+#button-group button:hover,
+#button-group button:active {
+  background-color: rgb(0, 118, 208);
+}
+
+#play-game {
+  display: block;
+  margin: 0 auto;
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  color: white;
+  background-color: rgb(0, 145, 255);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+#play-game:hover,
+#play-game:active {
+  background-color: rgb(0, 118, 208);
+}
