@@ -29,6 +29,8 @@ function displayArr() {
     console.log("Printing array for player one: ");
     console.log(playerOnePositions);
     checkHorizontal(currentPlayer, playerOnePositions);
+    // playerOnePositions.sort((a, b) => a[0] - b[0]);
+    // console.log(playerOnePositions);
   } else {
     console.log("Printing array for player two: ");
     console.log(playerTwoPositions);
@@ -37,6 +39,7 @@ function displayArr() {
 }
 
 function checkVertical(currentPlayer, playerArray) {
+  playerArray.sort((a, b) => a[0] - b[0]);
   let winningArray;
   let consecutive;
   for (let i = 0; i < playerArray.length; i++) {
@@ -69,6 +72,7 @@ function checkVertical(currentPlayer, playerArray) {
 }
 
 function checkHorizontal(currentPlayer, playerArray) {
+  playerArray.sort((a, b) => a[0] - b[0]);
   let winningArray;
   let consecutive;
   for (let i = 0; i < playerArray.length; i++) {
@@ -78,10 +82,8 @@ function checkHorizontal(currentPlayer, playerArray) {
     for (let j = i + 1; j < playerArray.length; j++) {
       console.log(playerArray[i], playerArray[j], consecutive);
       if (
-        (playerArray[j][1] == playerArray[i][1] &&
-          playerArray[j][0] == playerArray[i][0] + consecutive) ||
-        (playerArray[j][1] == playerArray[i][1] &&
-          playerArray[j][0] == playerArray[i][0] - consecutive)
+        playerArray[j][1] == playerArray[i][1] &&
+        playerArray[j][0] == playerArray[i][0] + consecutive
       ) {
         consecutive += 1;
         winningArray.push(playerArray[j]);
@@ -103,6 +105,7 @@ function checkHorizontal(currentPlayer, playerArray) {
 }
 
 function checkDiagonalRight(currentPlayer, playerArray) {
+  playerArray.sort((a, b) => a[0] - b[0]);
   let winningArray;
   let consecutive;
   for (let i = 0; i < playerArray.length; i++) {
@@ -112,10 +115,8 @@ function checkDiagonalRight(currentPlayer, playerArray) {
     for (let j = i + 1; j < playerArray.length; j++) {
       // console.log(playerArray[i], playerArray[j], consecutive);
       if (
-        (playerArray[j][0] == playerArray[i][0] + consecutive &&
-          playerArray[j][1] == playerArray[i][1] - consecutive) ||
-        (playerArray[j][0] == playerArray[i][0] - consecutive &&
-          playerArray[j][1] == playerArray[i][1] + consecutive)
+        playerArray[j][0] == playerArray[i][0] + consecutive &&
+        playerArray[j][1] == playerArray[i][1] - consecutive
       ) {
         consecutive += 1;
         winningArray.push(playerArray[j]);
@@ -137,6 +138,7 @@ function checkDiagonalRight(currentPlayer, playerArray) {
 }
 
 function checkDiagonalLeft(currentPlayer, playerArray) {
+  playerArray.sort((a, b) => a[0] - b[0]);
   let winningArray;
   let consecutive;
   for (let i = 0; i < playerArray.length; i++) {
@@ -146,10 +148,8 @@ function checkDiagonalLeft(currentPlayer, playerArray) {
     for (let j = i + 1; j < playerArray.length; j++) {
       // console.log(playerArray[i], playerArray[j], consecutive);
       if (
-        (playerArray[j][0] == playerArray[i][0] + consecutive &&
-          playerArray[j][1] == playerArray[i][1] + consecutive) ||
-        (playerArray[j][0] == playerArray[i][0] - consecutive &&
-          playerArray[j][1] == playerArray[i][1] - consecutive)
+        playerArray[j][0] == playerArray[i][0] + consecutive &&
+        playerArray[j][1] == playerArray[i][1] + consecutive
       ) {
         consecutive += 1;
         winningArray.push(playerArray[j]);
@@ -193,17 +193,17 @@ function markX(playerArray) {
     if (playerArray[i][0] == 0) {
       offset = 0.04;
     } else if (playerArray[i][0] == 1) {
-      offset = 0.182;
+      offset = 0.183;
     } else if (playerArray[i][0] == 2) {
-      offset = 0.324;
+      offset = 0.323;
     } else if (playerArray[i][0] == 3) {
-      offset = 0.468;
+      offset = 0.47;
     } else if (playerArray[i][0] == 4) {
-      offset = 0.61;
+      offset = 0.609;
     } else if (playerArray[i][0] == 5) {
-      offset = 0.762;
+      offset = 0.755;
     } else if (playerArray[i][0] == 6) {
-      offset = 0.884;
+      offset = 0.896;
     }
     let h1 = document.createElement("H1");
     var X = document.createTextNode("X");
@@ -218,6 +218,12 @@ function markX(playerArray) {
     // console.log(playerArray[i]);
   }
 }
+
+// function sortArray(playerArray){
+//   let returnArray;
+//   playerArray.sort((a, b) => a[0] - b[0]);
+//   return returnArray;
+// }
 
 let currentPositionColOne = 0; // this is to help with the offset and determine which row the chip will go to
 function dropChipOne() {
